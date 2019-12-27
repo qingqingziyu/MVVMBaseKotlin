@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="article"
+            type="com.cf.mvvmbasekotlin.model.Article" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/main_item_controll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@mipmap/home_hot" />
+
+                <TextView
+                    android:id="@+id/articleAuthor"
+                    style="@style/Article_text"
+                    tools:text="小米" />
+
+
+                <TextView
+                    android:id="@+id/articleTag"
+                    style="@style/Article_text"
+                    android:text="@{article.superChapterName+'/'+article.chapterName}"
+                    tools:text="Android" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="#1c1c1e"
+                android:textSize="16sp"
+                app:htmlText="@{article.title}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@mipmap/ic_time" />
+
+
+                <TextView
+                    android:id="@+id/articleTime"
+                    style="@style/Article_text"
+                    android:text="@{article.niceDate}"
+                    tools:text="1小时前" />
+
+                <ImageView
+                    android:id="@+id/articleStar"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:clickable="true"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:src="@mipmap/timeline_like_normal" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
